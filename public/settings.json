@@ -1,0 +1,124 @@
+{
+  "version": 2,
+  "tonemapping": "none",
+  "highPrecisionRendering": false,
+  "background": {
+    "color": [0, 0, 0]
+  },
+  "postEffectSettings": {
+    "sharpness": {
+      "enabled": false,
+      "amount": 0
+    },
+    "bloom": {
+      "enabled": false,
+      "intensity": 1,
+      "blurLevel": 2
+    },
+    "grading": {
+      "enabled": false,
+      "brightness": 0,
+      "contrast": 1,
+      "saturation": 1,
+      "tint": [1, 1, 1]
+    },
+    "vignette": {
+      "enabled": false,
+      "intensity": 0.5,
+      "inner": 0.3,
+      "outer": 0.75,
+      "curvature": 1
+    },
+    "fringing": {
+      "enabled": false,
+      "intensity": 0.5
+    }
+  },
+  "camera": {
+    "fov": 75,
+    "position": [-350, 420, 0],
+    "target": [-180, 370, 50],
+    "startAnim": "animTrack",
+    "animTrack": "Strasse"
+  },
+  "animTracks": [
+    {
+      "name": "Strasse",
+      "duration": 35,
+      "frameRate": 30,
+      "loopMode": "repeat",
+      "interpolation": "spline",
+      "smoothness": 1,
+      "keyframes": {
+        "times": [0, 280, 440, 760],
+        "values": {
+          "position": [
+            543.4765625,
+            429.3133544921875,
+            269.6247253417969,
+            206.68992614746094,
+            432.8257751464844,
+            127.92081451416016,
+            -55.16492462158203,
+            412.18084716796875,
+            71.16448974609375,
+            -436.56689453125,
+            409.25732421875,
+            1.6673526763916016
+          ],
+          "target": [
+            140.11422227145636,
+            361.786345337325,
+            131.52292667931113,
+            130.56315179521405,
+            413.7707676882248,
+            112.9853331696509,
+            -285.16900011047994,
+            373.0276042999975,
+            21.84980861334598,
+            -479.65930839454313,
+            399.74053708613485,
+            -12.710793025342067
+          ],
+          "fov": [75, 75, 75, 75]
+        }
+      }
+    }
+  ],
+  "cameras": [
+    {
+      "initial": {
+        "position": [-350, 420, 0],
+        "target": [-180, 370, 50],
+        "fov": 75
+      }
+    }
+  ],
+  "annotations": [
+    {
+      "position": [130.56315179521405, 413.7707676882248, 112.9853331696509],
+      "title": "Ansicht Landstrasse",
+      "text": "Die Landstrasse ist die Hauptverkehrsader von Untersiggenthal und soll bis ins jahr 2030 ausgebaut werden",
+      "camera": {
+        "initial": {
+          "position": [206.68992614746094, 432.8257751464844, 127.92081451416016],
+          "target": [130.56315179521405, 413.7707676882248, 112.9853331696509],
+          "fov": 75
+        }
+      }
+    },
+    {
+      "position": [-285.16900011047994, 373.0276042999975, 21.84980861334598],
+      "title": "Umbau BG16549: Alte Gärntnerei",
+      "text": "Die Alte Gärntnerei wird im Rahmen des Umbaus von BG16549 sanier und umgestaltet.",
+      "camera": {
+        "initial": {
+          "position": [-55.16492462158203, 412.18084716796875, 71.16448974609375],
+          "target": [-285.16900011047994, 373.0276042999975, 21.84980861334598],
+          "fov": 75
+        }
+      }
+    }
+  ],
+  "startMode": "animTrack"
+}
