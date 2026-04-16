@@ -210,12 +210,6 @@ const initPoster = (events: EventHandler) => {
         poster.style.display = 'none';
         document.documentElement.style.setProperty('--canvas-opacity', '1');
     });
-
-    const blur = (progress: number) => {
-        poster.style.filter = `blur(${Math.floor((100 - progress) * 0.4)}px)`;
-    };
-
-    events.on('progress:changed', blur);
 };
 
 const initUI = (global: Global) => {
