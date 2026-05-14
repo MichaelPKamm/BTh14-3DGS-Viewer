@@ -1,58 +1,31 @@
-# SuperSplat Viewer
+# BTh14 Realistische Visualisierungen in der Verkehrs- und Siedlungsplanung
 
-[![NPM Version](https://img.shields.io/npm/v/@playcanvas/supersplat-viewer)](https://www.npmjs.com/package/@playcanvas/supersplat-viewer)
-[![NPM Downloads](https://img.shields.io/npm/dw/@playcanvas/supersplat-viewer)](https://npmtrends.com/@playcanvas/supersplat-viewer)
-[![License](https://img.shields.io/npm/l/@playcanvas/supersplat-viewer)](https://github.com/playcanvas/supersplat-viewer/blob/main/LICENSE)
-[![Discord](https://img.shields.io/badge/Discord-5865F2?style=flat&logo=discord&logoColor=white&color=black)](https://discord.gg/RSaMRzg)
-[![Reddit](https://img.shields.io/badge/Reddit-FF4500?style=flat&logo=reddit&logoColor=white&color=black)](https://www.reddit.com/r/PlayCanvas)
-[![X](https://img.shields.io/badge/X-000000?style=flat&logo=x&logoColor=white&color=black)](https://x.com/intent/follow?screen_name=playcanvas)
+This viewer wasn't built by us — this is a fork of the [PlayCanvas SuperSplat Viewer](https://github.com/playcanvas/supersplat-viewer).
 
-| [User Manual](https://developer.playcanvas.com/user-manual/gaussian-splatting/editing/supersplat/import-export/#html-viewer-htmlzip) | [Blog](https://blog.playcanvas.com) | [Forum](https://forum.playcanvas.com) |
+This thesis was written by Michael Kamm and Marco Ammann at the [University of Applied Sciences Northwestern Switzerland (FHNW)](https://www.fhnw.ch).
 
-This is the official viewer for [SuperSplat](https://superspl.at).
+This Bachelor's thesis aims to display futuristic megaprojects using 3D Gaussian Splatting (3DGS). The project perimeter was captured with a DJI Mini 3 Pro and processed in [Agisoft Metashape](https://www.agisoft.com). The 3DGS scenes are computed using [Jawset Postshot](https://www.jawset.com/).
 
-<img width="1114" height="739" alt="supersplat-viewer" src="https://github.com/user-attachments/assets/15d2c654-9484-4265-a279-99acb65e38c9" />
+Our thesis will not be publicly available.
 
-The web app compiles to a simple, self-contained static website.
+|                    Comparison                     |
+| :-----------------------------------------------: |
+|                   **Original**                    |
+|   <img src="images/Original.jpg" width="800"/>    |
+|                     **3DGS**                      |
+|     <img src="images/3DGS.png" width="800"/>      |
+|        **3DGS with futuristic buildings**         |
+| <img src="images/3DGS_Gebaeude.png" width="800"/> |
 
-The app supports a few useful URL parameters (though please note these are subject to change):
+## Starting the Viewer on a Web Server
 
-| Parameter | Description | Default |
-| --------- | ----------- | ------- |
-| `settings` | URL of the `settings.json` file | `./settings.json` |
-| `content` | URL of the scene file (`.ply`, `.sog`, `.meta.json`, `.lod-meta.json`) | `./scene.compressed.ply` |
-| `skybox` | URL of an equirectangular skybox image | |
-| `poster` | URL of an image to show while loading | |
-| `noui` | Hide UI | |
-| `noanim` | Start with animation paused | |
-| `ministats` | Show runtime CPU/GPU performance graphs | |
-| `unified` | Force unified rendering mode | |
-| `aa` | Enable antialiasing (not supported in unified mode) | |
-
-The web app source files are available as strings for templating when you import the package from npm:
-
-```ts
-import { html, css, js } from '@playcanvas/supersplat-viewer';
-
-// logs the source of index.html
-console.log(html);
-
-// logs the source of index.css
-console.log(css);
-
-// logs the source of index.js
-console.log(js);
-```
-
-## Local Development
-
-To initialize a local development environment for SuperSplat Viewer, ensure you have [Node.js](https://nodejs.org/) 18 or later installed. Follow these steps:
+To initialize the SuperSplat Viewer on your own server you need a Linux (Ubuntu) based server with Node.js, Git, and NGINX installed. NGINX needs to be fully configured to your liking.
 
 1. Clone the repository:
 
    ```sh
-   git clone https://github.com/playcanvas/supersplat-viewer.git
-   cd supersplat-viewer
+   git clone https://github.com/MichaelPKamm/BTh14-3DGS-Viewer.git
+   cd BTh14-3DGS-Viewer
    ```
 
 2. Install dependencies:
@@ -61,63 +34,59 @@ To initialize a local development environment for SuperSplat Viewer, ensure you 
    npm install
    ```
 
-3. Start the development build and local web server:
+3. Upload the 3DGS file to the server and add it to the public folder:
 
    ```sh
-   npm run develop
+   scp -P <PORT> <YOUR_LOCAL_PATH>/scene.compressed.ply <USER>@<SERVER_ADDRESS>:/home/<USER>/BTh14-3DGS-Viewer/public/
    ```
 
-4. Open your browser at http://localhost:3000.
+   | Placeholder         | Description                                   |
+   | ------------------- | --------------------------------------------- |
+   | `<PORT>`            | Port of your server                           |
+   | `<YOUR_LOCAL_PATH>` | Local path on your laptop to your `.ply` file |
+   | `<USER>`            | Your username on the server                   |
+   | `<SERVER_ADDRESS>`  | IP address or domain of the server            |
 
-## Settings Schema
+4. Run the build process:
 
-The `settings.json` file has the following schema (defined in TypeScript and taken from the SuperSplat editor):
+   ```sh
+   npm run build
+   ```
 
+5. Move the `public` folder into NGINX:
 
-```typescript
-type AnimTrack = {
-    name: string,
-    duration: number,
-    frameRate: number,
-    target: 'camera',
-    loopMode: 'none' | 'repeat' | 'pingpong',
-    interpolation: 'step' | 'spline',
-    smoothness: number,
-    keyframes: {
-        times: number[],
-        values: {
-            position: number[],
-            target: number[],
-        }
-    }
-};
+   ```sh
+   sudo rsync -av --delete ~/BTh14-3DGS-Viewer/public/ /var/www/3dgsviewer/
+   ```
 
-type ExperienceSettings = {
-    camera: {
-        fov?: number,
-        position?: number[],
-        target?: number[],
-        startAnim: 'none' | 'orbit' | 'animTrack',
-        animTrack: string
-    },
-    background: {
-        color?: number[]
-    },
-    animTracks: AnimTrack[]
-};
-```
+6. Reload the NGINX server:
 
-### Example settings.json
+   ```sh
+   sudo systemctl reload nginx
+   ```
 
-```json
-{
-  "background": {"color": [0,0,0,0]},
-  "camera": {
-    "fov": 1.0,
-    "position": [0,1,-1],
-    "target": [0,0,0],
-    "startAnim": "orbit"
-  },
-  "animTracks": []
-}
-```
+## Mandatory Files to Run the Viewer on Your Own Server
+
+The `settings.json` file defines the viewpoints (cameras) for the viewer as well as annotations and animations. For examples, please refer to the dedicated appendix of our thesis.
+
+The `scene.compressed.ply` is the 3DGS file that will be displayed by the viewer. Aim for as small a file size as possible.
+
+The `bild.jpg` is the wallpaper image that appears in the background while the 3DGS is loading. Keep in mind that this image will be viewed on many different screen sizes (including phones).
+
+The `favicon.ico` is the favicon displayed next to your website name in the browser tab.
+
+## URL Parameters
+
+The app supports the following URL parameters (note: these are subject to change):
+
+| Parameter   | Description                                                            | Default                  |
+| ----------- | ---------------------------------------------------------------------- | ------------------------ |
+| `settings`  | URL of the `settings.json` file                                        | `./settings.json`        |
+| `content`   | URL of the scene file (`.ply`, `.sog`, `.meta.json`, `.lod-meta.json`) | `./scene.compressed.ply` |
+| `skybox`    | URL of an equirectangular skybox image                                 |                          |
+| `poster`    | URL of an image to show while loading                                  |                          |
+| `noui`      | Hide UI                                                                |                          |
+| `noanim`    | Start with animation paused                                            |                          |
+| `ministats` | Show runtime CPU/GPU performance graphs                                |                          |
+| `unified`   | Force unified rendering mode                                           |                          |
+| `aa`        | Enable antialiasing (not supported in unified mode)                    |                          |
