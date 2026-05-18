@@ -102,7 +102,7 @@
         -9.25373166224426
       ],
       "title": "Einfahrt \"Ost\"",
-      "text": "Einfahrt von Osten in Richtung Untersiggenthal.",
+      "text": "Einfahrt von Osten in Richtung Laufenburg AG durch Untersiggenthal.",
       "extras": {},
       "camera": {
         "initial": {
@@ -127,7 +127,7 @@
         203.09765101485414
       ],
       "title": "Einfahrt \"West\"",
-      "text": "Einfahrt von Westen in Richtung Untersiggenthal.",
+      "text": "Einfahrt von Westen in Richtung Baden AG durch Untersiggenthal.",
       "extras": {},
       "camera": {
         "initial": {
@@ -227,7 +227,7 @@
         -43.91370222876317
       ],
       "title": "Ansicht geplante Überbauung",
-      "text": "Die Südhälfte von Untersiggenthal soll zukünftig neugestaltet werden.",
+      "text": "Die ersichtlichen, grauen Gebäude südlich der Landstrasse sollten mit der Umgestalltung erstellt werden.",
       "extras": {},
       "camera": {
         "initial": {
