@@ -96,25 +96,151 @@
   ],
   "annotations": [
     {
-      "position": [130.56315179521405, 413.7707676882248, 112.9853331696509],
-      "title": "Ansicht Landstrasse",
-      "text": "Die Landstrasse ist die Hauptverkehrsader von Untersiggenthal und soll bis ins jahr 2030 ausgebaut werden",
+      "position": [
+        -480.7280452581466,
+        378.4837197540146,
+        -9.25373166224426
+      ],
+      "title": "Einfahrt \"Ost\"",
+      "text": "Einfahrt von Osten in Richtung Untersiggenthal.",
+      "extras": {},
       "camera": {
         "initial": {
-          "position": [206.68992614746094, 432.8257751464844, 127.92081451416016],
-          "target": [130.56315179521405, 413.7707676882248, 112.9853331696509],
+          "position": [
+            -579.1155395507812,
+            410.3877258300781,
+            -16.115291595458984
+          ],
+          "target": [
+            -461.04324470579957,
+            390.9310166320387,
+            2.5899595295080253
+          ],
           "fov": 75
         }
       }
     },
     {
-      "position": [-285.16900011047994, 373.0276042999975, 21.84980861334598],
-      "title": "Umbau BG16549: Alte Gärntnerei",
-      "text": "Die Alte Gärntnerei wird im Rahmen des Umbaus von BG16549 sanier und umgestaltet.",
+      "position": [
+        340.6477847426314,
+        375.30929306019095,
+        203.09765101485414
+      ],
+      "title": "Einfahrt \"West\"",
+      "text": "Einfahrt von Westen in Richtung Untersiggenthal.",
+      "extras": {},
       "camera": {
         "initial": {
-          "position": [-55.16492462158203, 412.18084716796875, 71.16448974609375],
-          "target": [-285.16900011047994, 373.0276042999975, 21.84980861334598],
+          "position": [
+            425.7951354980469,
+            394.6454772949219,
+            240.055908203125
+          ],
+          "target": [
+            339.11184143009245,
+            369.51857455507945,
+            196.22342775582004
+          ],
+          "fov": 75
+        }
+      }
+    },
+    {
+      "position": [
+        -55.697367933913796,
+        383.8811540583179,
+        104.46251306493181
+      ],
+      "title": "Migros Untersiggenthal",
+      "text": "",
+      "extras": {},
+      "camera": {
+        "initial": {
+          "position": [
+            48.296165466308594,
+            403.6449279785156,
+            100.56884002685547
+          ],
+          "target": [
+            -15.862414029933802,
+            375.5646841458811,
+            91.52891741831836
+          ],
+          "fov": 75
+        }
+      }
+    },
+    {
+      "position": [
+        -253.63293377440948,
+        378.33179626627015,
+        35.02069588279387
+      ],
+      "title": "Bushaltestelle \"Spiracher\"",
+      "text": "Die Bushaltestelle \"Untersiggenthal, Spiracher\" liegt vis à vis vom Volg",
+      "extras": {},
+      "camera": {
+        "initial": {
+          "position": [
+            -183.82069396972656,
+            423.1139221191406,
+            74.76830291748047
+          ],
+          "target": [
+            -487.6379440484729,
+            259.6335757892943,
+            -185.19761723834
+          ],
+          "fov": 75
+        }
+      }
+    },
+    {
+      "position": [
+        41.918310706665764,
+        375.84108003817795,
+        102.3906634013722
+      ],
+      "title": "Bushaltestelle \"Gemeindehaus\"",
+      "text": "Die Bushaltestellt \"Untersiggenthal, Gemeindehaus\" liegt in der Nähe des Migros",
+      "extras": {},
+      "camera": {
+        "initial": {
+          "position": [
+            -25.436861038208008,
+            406.2657470703125,
+            112.27418518066406
+          ],
+          "target": [
+            70.85741067360279,
+            381.5418359515272,
+            98.75465025994495
+          ],
+          "fov": 75
+        }
+      }
+    },
+    {
+      "position": [
+        -261.9616465694539,
+        413.2868264094098,
+        -43.91370222876317
+      ],
+      "title": "Ansicht geplante Überbauung",
+      "text": "Die Südhälfte von Untersiggenthal soll zukünftig neugestaltet werden.",
+      "extras": {},
+      "camera": {
+        "initial": {
+          "position": [
+            -433.05401611328125,
+            508.5766906738281,
+            -162.74685668945312
+          ],
+          "target": [
+            -113.69843146483288,
+            340.9080108238279,
+            136.92469984887666
+          ],
           "fov": 75
         }
       }
